@@ -1,7 +1,7 @@
-import { carData, getCarsData, getCar } from "../data"
+import { car, getCarsData, getCar } from "../data"
 
 export default async function Page({ params }: { params: { id: string } }) {
-  const car = getCar(params.id)
+  const car: car = getCar(params.id)
   console.log({ car })
 
   return (
@@ -9,8 +9,8 @@ export default async function Page({ params }: { params: { id: string } }) {
       {
         car && (
           <div key={car.id}>
-            <h1>{car.make} {car.model}</h1>
-            <p>{car.year}</p>
+            <h1>{car.manufacturer} {car.model}</h1>
+            <p>{car.year} ({car.regYear}reg)</p>
           </div>
         )
       }
@@ -19,9 +19,9 @@ export default async function Page({ params }: { params: { id: string } }) {
 }
 
 export async function generateStaticParams() {
-  const cars: Array<carData> = getCarsData()
+  const cars: Array<car> = getCarsData()
 
-  const carIds = cars.map((car: carData) => ({
+  const carIds = cars.map((car: car) => ({
     id: car.id
   }))
 
