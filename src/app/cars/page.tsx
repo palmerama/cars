@@ -8,8 +8,8 @@ export default function Page() {
     <ul>
       {
         cars && cars.map(car => (
-          <li>
-            <Link href={`/cars/${car.id}`} key={car.id} >
+          <li key={car.id}>
+            <Link href={`/cars/${car.id}`}>
               {car.manufacturer} {car.model} ({car.regYear}reg)
             </Link>
           </li>
