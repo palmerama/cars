@@ -11,6 +11,7 @@ export default async function Page({ params }: { params: { id: string } }) {
           <div key={car.id}>
             <h1>{car.manufacturer} {car.model}</h1>
             <p>{car.year} ({car.regYear}reg)</p>
+            <p></p>
           </div>
         )
       }
