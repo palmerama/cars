@@ -1,8 +1,9 @@
-import { car, getCarsData, getCar } from "../data"
+import { Car } from "@/app/lib/definitions"
+import { fetchAllCars, fetchCarById } from "@/app/lib/data"
 
 export default async function Page({ params }: { params: { id: string } }) {
-  const car: car = getCar(params.id)
-  console.log({ car })
+  const car = await fetchCarById(params.id)
+  console.log(`car found for id ${params.id}:`, { car })
 
   return (
     <div>
@@ -20,9 +21,9 @@ export default async function Page({ params }: { params: { id: string } }) {
 }
 
 export async function generateStaticParams() {
-  const cars: Array<car> = getCarsData()
+  const cars = await fetchAllCars()
 
-  const carIds = cars.map((car: car) => ({
+  const carIds = cars.rows.map((car: Car) => ({
     id: car.id
   }))
 

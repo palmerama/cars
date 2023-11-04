@@ -1,13 +1,14 @@
 import Link from "next/link"
-import { car, getCarsData } from "./data"
+import { fetchAllCars } from "../lib/data"
+import { Car } from "@/app/lib/definitions"
 
-export default function Page() {
-  const cars: Array<car> = getCarsData()
+export default async function Page() {
+  const cars = await fetchAllCars()
 
   return <>
     <ul>
       {
-        cars && cars.map(car => (
+        cars.rows.map((car: Car) => (
           <li key={car.id}>
             <Link href={`/cars/${car.id}`}>
               {car.manufacturer} {car.model} ({car.regYear}reg)

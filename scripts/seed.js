@@ -1,7 +1,7 @@
 const { db } = require('@vercel/postgres');
 const {
   cars
-} = require('../src/app/lib/data.ts');
+} = require('../src/app/lib/seedData.js');
 
 async function seedCars(client) {
   try {
