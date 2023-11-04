@@ -21,9 +21,9 @@ export default async function Page({ params }: { params: { id: string } }) {
 }
 
 export async function generateStaticParams() {
-  const cars = await fetchAllCars()
+  const cars: Array<Car> = await fetchAllCars()
 
-  const carIds = cars.rows.map((car: Car) => ({
+  const carIds = cars.map((car: Car) => ({
     id: car.id
   }))
 
