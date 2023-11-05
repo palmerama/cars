@@ -45,3 +45,28 @@ export async function createCar(formData: FormData) {
   revalidatePath('/cars')
   redirect('/cars')
 }
+
+export async function updateCar(id: string, formData: FormData) {
+  const { manufacturer, model, year, regYear, trim, price, fuelType, engineSize, mileage, image, color } = CreateCar.parse({
+    manufacturer: formData.get('manufacturer'),
+    model: formData.get('model'),
+    year: formData.get('year'),
+    regYear: formData.get('regYear'),
+    trim: formData.get('trim'),
+    price: formData.get('price'),
+    fuelType: formData.get('fuelType'),
+    engineSize: formData.get('engineSize'),
+    mileage: formData.get('mileage'),
+    image: formData.get('image'),
+    color: formData.get('color')
+  })
+ 
+  await sql`
+    UPDATE cars 
+    SET manufacturer=${manufacturer}, model=${model}, year=${year}, reg_year=${regYear}, trim=${trim}, price=${price}, fuel_type=${fuelType}, engine_size=${engineSize}, mileage=${mileage}, image=${image}, color=${color}
+    WHERE id = ${id}
+  `
+
+  revalidatePath('/cars')
+  redirect('/cars')
+}
