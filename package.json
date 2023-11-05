@@ -10,9 +10,11 @@
     "seed": "node -r dotenv/config ./scripts/seed.js"
   },
   "dependencies": {
+    "@types/comma-number": "^2.1.1",
     "@vercel/postgres": "^0.5.1",
     "bcrypt": "^5.1.1",
     "clsx": "^2.0.0",
+    "comma-number": "^2.1.0",
     "dotenv": "^16.3.1",
     "next": "14.0.1",
     "react": "^18",
