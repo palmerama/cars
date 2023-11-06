@@ -118,9 +118,7 @@ export default function Form({ car, imageFilenames }: { car: Car, imageFilenames
       </div>
 
       <div className="mt-6 flex justify-end gap-4">
-        <LinkButton href="/cars" reverse>
-          Cancel
-        </LinkButton>
+        <LinkButton href="/cars" empty>Cancel</LinkButton>
         <Button type="submit">Update car</Button>
       </div>
     </form>

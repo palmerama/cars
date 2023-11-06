@@ -65,7 +65,7 @@ export const Select: React.FC<SelectProps> = ({ label, name, options, placeholde
 
 export const FormSection: React.FC<{ title?: string | undefined, children: React.ReactNode }> = ({ title = null, children }) => {
   return (
-    <div className="grid gap-5 mb-4 px-6 py-5 border border-2 rounded-md">
+    <div className="grid gap-5 mb-4 px-6 py-5 border-2 rounded-md">
       {
         title && <div className="text-lg font-medium text-yellow-700">{title}</div>
       }
