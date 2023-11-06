@@ -29,7 +29,7 @@ const Car = ({ car }: { car: Car }) => {
 
   return (
     <li key={car.id}>
-      <Link href={`/cars/${car.id}`} className="grid border border-gray-300 hover:border-yellow-700 transition duration-150 ease-in pb-3 leading-tight rounded-md overflow-hidden hover:scale-[1.01]">
+      <Link href={`/cars/${car.id}`} className="grid border border-gray-200 hover:border-yellow-700 transition duration-150 ease-in pb-3 leading-tight rounded-md overflow-hidden hover:scale-[1.01]">
         <Image
           src={`/cars/${car.image}`}
           alt={`${car.year} ${car.manufacturer} ${car.model} ${car.trim}`}

@@ -1,4 +1,7 @@
+import clsx from "clsx"
 import React from "react"
+
+const inputStyle = "block w-full rounded-md py-3 px-5 text-md text-black leading-normal outline-2 placeholder:text-gray-400"
 
 type InputProps = {
   label: string
@@ -22,7 +25,7 @@ export const Input: React.FC<InputProps> = ({ label, name, type = 'text', placeh
             type={type}
             placeholder={placeholder || ''}
             defaultValue={defaultValue || ''}
-            className="peer block w-full rounded-sm py-3 px-5 text-md text-black outline-2 placeholder:text-gray-400"
+            className={inputStyle}
           />
         </div>
       </div>
@@ -51,8 +54,9 @@ export const Select: React.FC<SelectProps> = ({ label, name, options, placeholde
             name={name}
             placeholder={placeholder || ''}
             defaultValue={defaultValue || ''}
-            className="peer block w-full rounded-sm py-3 px-5 text-md text-black outline-2 placeholder:text-gray-400"
+            className={clsx(inputStyle, "appearance-none")}
           >
+            <option value="" disabled>{label}</option>
             {
               options.map(option => <option key={option.value} value={option.value}>{option.label}</option>)
             }
@@ -65,9 +69,9 @@ export const Select: React.FC<SelectProps> = ({ label, name, options, placeholde
 
 export const FormSection: React.FC<{ title?: string | undefined, children: React.ReactNode }> = ({ title = null, children }) => {
   return (
-    <div className="grid gap-5 mb-4 px-6 py-5 border-2 rounded-md">
+    <div className="grid gap-5 mb-4 px-6 py-5 bg-gray-100 border border-gray-200 rounded-md">
       {
-        title && <div className="text-lg font-medium text-yellow-700">{title}</div>
+        title && <div className="text-xl font-semibold text-yellow-700">{title}</div>
       }
       <fieldset className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
         {children}

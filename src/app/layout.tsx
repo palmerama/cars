@@ -17,7 +17,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={clsx(
-        "bg-slate-100",
+        "bg-gray-50",
         GeistSans.className
       )}>
         <Header />

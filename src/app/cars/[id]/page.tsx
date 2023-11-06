@@ -17,7 +17,7 @@ export default async function Page({ params }: { params: { id: string } }) {
     <>
       {
         car && (
-          <div className='grid grid-cols-[1fr_25%] gap-6 max-w-[1200px] m-auto'>
+          <div className='grid lg:grid-cols-[1fr_30%] gap-6 max-w-[1200px] m-auto bg-gray-100 border border-gray-200 rounded-md overflow-hidden'>
             <Image
               src={`/cars/${car.image}`}
               alt={`${car.year} ${car.manufacturer} ${car.model} ${car.trim}`}
@@ -25,7 +25,7 @@ export default async function Page({ params }: { params: { id: string } }) {
               height={1000}
               className="w-full object-cover"
             />
-            <div className="grid grid-rows-[1fr_auto]">
+            <div className="grid grid-rows-[1fr_auto] gap-6 px-6 pb-5 lg:pt-5">
               <div>
                 <div className='grid gap-6'>
                   <div>
@@ -33,7 +33,7 @@ export default async function Page({ params }: { params: { id: string } }) {
                     <div className="text-gray-400">{car.year} ({car.regYear})</div>
                   </div>
                   <div className='grid grid-cols-[auto_1fr]'>
-                    <div className='grid gap-1 bg-gray-200 py-3 pl-4 pr-6 rounded-md'>
+                    <div className='grid gap-1 bg-gray-50 py-3 pl-4 pr-6 rounded-md'>
                       <div>
                         <MdLocalGasStation className="inline-block text-yellow-700 align-text-bottom mr-1" /> {car.engineSize && car.engineSize} {car.fuelType[0].toUpperCase() + car.fuelType.substring(1)} {car.trim}
                       </div>
@@ -43,12 +43,12 @@ export default async function Page({ params }: { params: { id: string } }) {
                     </div>
                     <div />
                   </div>
-                  <div className="text-xl text-yellow-700 font-semibold">
+                  <div className="text-2xl text-yellow-600 font-semibold">
                     £{commaNumber(car.price)}
                   </div>
                 </div>
               </div>
-              <div className="w-full grid grid-flow-col justify-between">
+              <div className="w-full grid grid-flow-col gap-4 justify-end lg:justify-between">
                 <div>
                   <LinkButton href={`/cars/${car.id}/edit`}>
                     <MdEdit className="inline-block align-text-top mr-1" /> Edit
