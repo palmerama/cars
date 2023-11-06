@@ -1,5 +1,6 @@
 import clsx from "clsx"
 import React from "react"
+import { LuChevronsUpDown } from "react-icons/lu"
 
 const inputStyle = "block w-full rounded-md py-3 px-5 text-md text-black leading-normal outline-2 placeholder:text-gray-400"
 
@@ -55,7 +56,7 @@ export const Select: React.FC<SelectProps> = ({ label, name, options, placeholde
             name={name}
             placeholder={placeholder || ''}
             defaultValue={defaultValue || ''}
-            className={clsx(inputStyle, "appearance-none")}
+            className={clsx(inputStyle, "appearance-none cursor-pointer")}
             onChange={onChange}
           >
             <option value="" disabled>{placeholder}</option>
@@ -63,6 +64,12 @@ export const Select: React.FC<SelectProps> = ({ label, name, options, placeholde
               options.map(option => <option key={option.value} value={option.value}>{option.label}</option>)
             }
           </select>
+          <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
+            <LuChevronsUpDown
+              className="h-5 w-5 text-gray-400"
+              aria-hidden="true"
+            />
+          </span>
         </div>
       </div>
     </div>

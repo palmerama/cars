@@ -56,6 +56,6 @@ export async function fetchCarById(id: string) {
 
 export async function fetchImageFilenames() {
   return [
-    "golf.jpg", "focus.jpg", "qashqai.jpg", "kona.jpg", "ipace.jpg", "sportage.jpg", "a3.jpg", "3series.jpg", "discovery.jpg", "corolla.jpg", "model3.jpg", "c-class.jpg", "model3.jpg"
+    "golf.jpg", "focus.jpg", "qashqai.jpg", "kona.jpg", "ipace.jpg", "sportage.jpg", "a3.jpg", "3series.jpg", "discovery.jpg", "corolla.jpg", "model3.jpg", "c-class.jpg"
   ]
 } 
