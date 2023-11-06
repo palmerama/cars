@@ -10,6 +10,7 @@
     "seed": "node -r dotenv/config ./scripts/seed.js"
   },
   "dependencies": {
+    "@headlessui/react": "^1.7.17",
     "@types/comma-number": "^2.1.1",
     "@vercel/postgres": "^0.5.1",
     "bcrypt": "^5.1.1",
