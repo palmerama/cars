@@ -71,7 +71,7 @@ export default function Form({ imageFilenames }: { imageFilenames: Array<string>
 
         <FormSection title='Propulsion'>
           <Select
-            label="Choose a fuel type"
+            label="Fuel type"
             name="fuelType"
             options={[
               { value: 'petrol', label: 'Petrol' },
@@ -79,7 +79,7 @@ export default function Form({ imageFilenames }: { imageFilenames: Array<string>
               { value: 'hybrid', label: 'Hybrid' },
               { value: 'electric', label: 'Electric' },
             ]}
-            placeholder="Select a fuel type"
+            placeholder="Choose a fuel type"
           />
 
           <Input
@@ -92,13 +92,13 @@ export default function Form({ imageFilenames }: { imageFilenames: Array<string>
 
         <FormSection title="Image">
           <Select
-            label="Choose an image"
+            label="Photo"
             name="image"
             options={imageFilenames.map(filename => ({
               value: filename,
               label: filename
             }))}
-            placeholder="Select an image"
+            placeholder="Choose a photo"
           />
         </FormSection>
       </div>

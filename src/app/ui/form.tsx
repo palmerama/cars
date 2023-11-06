@@ -56,7 +56,7 @@ export const Select: React.FC<SelectProps> = ({ label, name, options, placeholde
             defaultValue={defaultValue || ''}
             className={clsx(inputStyle, "appearance-none")}
           >
-            <option value="" disabled>{label}</option>
+            <option value="" disabled>{placeholder}</option>
             {
               options.map(option => <option key={option.value} value={option.value}>{option.label}</option>)
             }
