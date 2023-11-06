@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { Button } from '@/app/ui/button';
+import { Button, LinkButton } from '@/app/ui/button';
 import { updateCar } from '@/app/lib/actions';
 import { Car } from '@/app/lib/definitions';
 import { FormSection, Input, Select } from '@/app/ui/form';
@@ -118,12 +118,9 @@ export default function Form({ car, imageFilenames }: { car: Car, imageFilenames
       </div>
 
       <div className="mt-6 flex justify-end gap-4">
-        <Link
-          href="/cars"
-          className="flex h-10 items-center rounded-lg bg-gray-100 px-4 text-sm font-medium text-gray-600 transition-colors hover:bg-gray-200"
-        >
+        <LinkButton href="/cars" reverse>
           Cancel
-        </Link>
+        </LinkButton>
         <Button type="submit">Update car</Button>
       </div>
     </form>

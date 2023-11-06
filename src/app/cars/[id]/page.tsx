@@ -5,7 +5,8 @@ import Image from "next/image"
 import Link from "next/link"
 import { MdLocalGasStation } from 'react-icons/md'
 import { SlSpeedometer } from 'react-icons/sl'
-import { MdEdit } from 'react-icons/md'
+import { MdEdit, MdClose } from 'react-icons/md'
+import { LinkButton } from "@/app/ui/button"
 
 export default async function Page({ params }: { params: { id: string } }) {
   const car = await fetchCarById(params.id)
@@ -45,15 +46,17 @@ export default async function Page({ params }: { params: { id: string } }) {
                   </div>
                 </div>
               </div>
-              <div>
-                <Link
-                  href={`/cars/${car.id}/edit`}
-                  className="inline-grid h-10 items-center rounded-md bg-yellow-700 text-white px-5 text-sm font-medium transition duration-75 ease-in hover:bg-gray-300 hover:text-gray-700"
-                >
-                  <div>
+              <div className="w-full grid grid-flow-col justify-between">
+                <div>
+                  <LinkButton href={`/cars/${car.id}/edit`}>
                     <MdEdit className="inline-block align-text-top mr-1" /> Edit
-                  </div>
-                </Link>
+                  </LinkButton>
+                </div>
+                <div>
+                  <LinkButton href={`/cars/${car.id}/edit`} warn>
+                    <MdClose className="inline-block text-lg align-text-bottom mr-1" /> Delete
+                  </LinkButton>
+                </div>
               </div>
             </div>
           </div>
