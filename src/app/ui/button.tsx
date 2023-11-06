@@ -5,9 +5,10 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
 }
 
-export const Button = ({ children, warn = false }: { children: React.ReactNode, warn?: boolean }) => {
+export const Button = ({ children, warn = false, ...rest }: { children: React.ReactNode, warn?: boolean }) => {
   return (
     <button
+      {...rest}
       className={clsx('inline-grid h-10 items-center rounded-md bg-yellow-700 text-white px-3 pr-5 text-sm font-medium transition duration-75 ease-in hover:bg-gray-300 hover:text-gray-700', warn && "bg-red-600 text-white")}
     >
       <div>
