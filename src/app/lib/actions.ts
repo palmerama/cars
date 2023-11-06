@@ -67,8 +67,9 @@ export async function updateCar(id: string, formData: FormData) {
     WHERE id = ${id}
   `
 
-  revalidatePath('/cars')
-  redirect('/cars')
+  revalidatePath(`/cars`)
+  revalidatePath(`/cars/${id}`)
+  redirect(`/cars/${id}`)
 }
 
 export async function deleteCar(id: string) {

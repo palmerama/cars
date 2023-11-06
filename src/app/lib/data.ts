@@ -55,10 +55,7 @@ export async function fetchCarById(id: string) {
 }
 
 export async function fetchImageFilenames() {
-  const data = await sql`
-    SELECT image
-    FROM cars
-  `
-
-  return data.rows.map(row => row.image)
+  return [
+    "golf.jpg", "focus.jpg", "qashqai.jpg", "kona.jpg", "ipace.jpg", "sportage.jpg", "a3.jpg", "3series.jpg", "discovery.jpg", "corolla.jpg", "model3.jpg", "c-class.jpg", "model3.jpg"
+  ]
 } 

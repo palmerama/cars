@@ -38,10 +38,11 @@ type SelectProps = {
   name: string
   options: Array<{ value: string, label: string }>
   placeholder?: string | undefined
-  defaultValue?: string | number | undefined
+  defaultValue?: string | number | undefined,
+  onChange?: React.ChangeEventHandler<HTMLSelectElement> | undefined
 }
 
-export const Select: React.FC<SelectProps> = ({ label, name, options, placeholder, defaultValue }) => {
+export const Select: React.FC<SelectProps> = ({ label, name, options, placeholder, defaultValue, onChange = undefined }) => {
   return (
     <div>
       <label htmlFor={name} className="mb-2 block text-sm font-medium">
@@ -55,6 +56,7 @@ export const Select: React.FC<SelectProps> = ({ label, name, options, placeholde
             placeholder={placeholder || ''}
             defaultValue={defaultValue || ''}
             className={clsx(inputStyle, "appearance-none")}
+            onChange={onChange}
           >
             <option value="" disabled>{placeholder}</option>
             {

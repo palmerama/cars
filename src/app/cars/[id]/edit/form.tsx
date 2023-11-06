@@ -113,6 +113,7 @@ export default function Form({ car, imageFilenames }: { car: Car, imageFilenames
             }))}
             defaultValue={car.image}
             placeholder="Choose a photo"
+            onChange={e => console.log(e.target.value)}
           />
         </FormSection>
       </div>
