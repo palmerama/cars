@@ -16,7 +16,7 @@ export const Button = ({ children, warn = false, ...rest }: ButtonProps) => {
         buttonStyle,
         warn 
           ? "bg-red-600 text-white"
-          : "bg-yellow-700 text-white"
+          : "bg-blue-600 text-white"
       )}
     >
       <div>
@@ -36,7 +36,7 @@ export const LinkButton = ({ href, children, empty = false, warn = false }: { hr
           ? "bg-transparent text-gray-700"
           : warn
             ? "bg-red-600 text-white"
-            : "bg-yellow-700 text-white"
+            : "bg-blue-600 text-white"
       )}
     >
       <div>

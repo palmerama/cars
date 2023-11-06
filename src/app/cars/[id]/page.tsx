@@ -17,7 +17,7 @@ export default async function Page({ params }: { params: { id: string } }) {
 
   return (
     <main>
-      <Link href={`/cars`} className="text-yellow-700 font-semibold text-lg hover:underline">
+      <Link href={`/cars`} className="text-blue-600 font-semibold text-lg hover:underline">
         <IoArrowBackSharp className="inline-block align-text-bottom mr-2" /> Vehicles
       </Link>
       {
@@ -74,7 +74,7 @@ const Specs = ({ car }: { car: Car }) => {
       {
         car.fuelType !== 'electric' &&
         <div>
-          <MdLocalGasStation className="inline-block text-yellow-700 align-text-bottom mr-1" />
+          <MdLocalGasStation className="inline-block text-yellow-600 align-text-bottom mr-1" />
           <> {car.engineSize && car.engineSize} {car.fuelType[0].toUpperCase() + car.fuelType.substring(1)} {car.trim}</>
         </div>
       }
@@ -83,13 +83,13 @@ const Specs = ({ car }: { car: Car }) => {
         <>
           <div>{car.trim}</div>
           <div>
-            <MdElectricalServices className="inline-block text-yellow-700 align-text-bottom mr-1" />
+            <MdElectricalServices className="inline-block text-yellow-600 align-text-bottom mr-1" />
             <> {car.engineSize && car.engineSize} {car.fuelType[0].toUpperCase() + car.fuelType.substring(1)}</>
           </div>
         </>
       }
       <div>
-        <SlSpeedometer className="inline-block text-yellow-700 align-text-top mr-1" />
+        <SlSpeedometer className="inline-block text-yellow-600 align-text-top mr-1" />
         <> {commaNumber(car.mileage)}</>
       </div>
     </div >

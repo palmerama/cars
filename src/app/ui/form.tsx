@@ -71,7 +71,7 @@ export const FormSection: React.FC<{ title?: string | undefined, children: React
   return (
     <div className="grid gap-5 mb-4 px-6 py-5 bg-gray-100 border border-gray-200 rounded-md">
       {
-        title && <div className="text-xl font-semibold text-yellow-700">{title}</div>
+        title && <div className="text-xl font-semibold text-gray-500">{title}</div>
       }
       <fieldset className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
         {children}
