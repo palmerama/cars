@@ -1,9 +1,8 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
 import './globals.css'
 import clsx from 'clsx'
-
-const inter = Inter({ subsets: ['latin'] })
+import Header from './ui/header'
+import { GeistSans } from 'geist/font'
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -18,9 +17,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={clsx(
-        'px-10 py-10',
-        inter.className
-      )}>{children}</body>
+        "bg-slate-100",
+        GeistSans.className
+      )}>
+        <Header />
+        {children}
+      </body>
     </html>
   )
 }

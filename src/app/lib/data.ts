@@ -53,3 +53,12 @@ export async function fetchCarById(id: string) {
     console.error('Database Error:', error)
   }
 }
+
+export async function fetchImageFilenames() {
+  const data = await sql`
+    SELECT image
+    FROM cars
+  `
+
+  return data.rows.map(row => row.image)
+} 

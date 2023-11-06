@@ -11,7 +11,7 @@ export default function Form() {
         <legend>
           Car details
         </legend>
-        <fieldset className="grid gap-5 ">
+        <fieldset className="grid gap-5">
 
           {/* manufacturer */}
           <div>

@@ -4,231 +4,117 @@ import Link from 'next/link';
 import { Button } from '@/app/ui/button';
 import { updateCar } from '@/app/lib/actions';
 import { Car } from '@/app/lib/definitions';
+import { FormSection, Input, Select } from '@/app/ui/form';
 
-export default function Form({ car }: { car: Car }) {
+export default function Form({ car, imageFilenames }: { car: Car, imageFilenames: Array<string> }) {
   const updateCarWithId = updateCar.bind(null, car.id)
 
   return (
     <form action={updateCarWithId}>
       <div className="grid gap-5 mb-4">
-        <legend>
-          Car details
-        </legend>
-        <fieldset className="grid gap-5 ">
+        <FormSection title='Details'>
+          <Input
+            label="Manufacturer"
+            name="manufacturer"
+            type="text"
+            placeholder="eg. Ford"
+            defaultValue={car.manufacturer}
+          />
 
-          {/* manufacturer */}
-          <div>
-            <label htmlFor="manufacturer" className="mb-2 block text-sm font-medium">
-              Manufacturer
-            </label>
-            <div className="relative mt-2 rounded-md">
-              <div className="relative">
-                <input
-                  id="manufacturer"
-                  name="manufacturer"
-                  type="text"
-                  placeholder="eg. Ford"
-                  defaultValue={car.manufacturer}
-                  className="peer block w-full rounded-md border border-gray-200 py-2 pl-10 text-sm text-black outline-2 placeholder:text-gray-500"
-                />
-              </div>
-            </div>
-          </div>
+          <Input
+            label="Model"
+            name="model"
+            type="text"
+            placeholder="eg. Escort"
+            defaultValue={car.model}
+          />
 
-          {/* model */}
-          <div>
-            <label htmlFor="model" className="mb-2 block text-sm font-medium">
-              Model
-            </label>
-            <div className="relative mt-2 rounded-md">
-              <div className="relative">
-                <input
-                  id="model"
-                  name="model"
-                  type="text"
-                  placeholder="eg. Escort"
-                  defaultValue={car.model}
-                  className="peer block w-full rounded-md border border-gray-200 py-2 pl-10 text-sm text-black outline-2 placeholder:text-gray-500"
-                />
-              </div>
-            </div>
-          </div>
+          <Input
+            label="Trim"
+            name="trim"
+            type="text"
+            placeholder="eg. SE"
+            defaultValue={car.trim}
+          />
 
-          {/* trim */}
-          <div>
-            <label htmlFor="trim" className="mb-2 block text-sm font-medium">
-              Trim
-            </label>
-            <div className="relative mt-2 rounded-md">
-              <div className="relative">
-                <input
-                  id="trim"
-                  name="trim"
-                  type="string"
-                  placeholder="eg. SE"
-                  defaultValue={car.trim}
-                  className="peer block w-full rounded-md border border-gray-200 py-2 pl-10 text-sm text-black outline-2 placeholder:text-gray-500"
-                />
-              </div>
-            </div>
-          </div>
+          <Input
+            label="Mileage"
+            name="mileage"
+            type="number"
+            placeholder="eg. 10000"
+            defaultValue={car.mileage}
+          />
 
-          {/* year */}
-          <div>
-            <label htmlFor="year" className="mb-2 block text-sm font-medium">
-              Year
-            </label>
-            <div className="relative mt-2 rounded-md">
-              <div className="relative">
-                <input
-                  id="year"
-                  name="year"
-                  type="number"
-                  placeholder="eg. 2023"
-                  defaultValue={car.year}
-                  className="peer block w-full rounded-md border border-gray-200 py-2 pl-10 text-sm text-black outline-2 placeholder:text-gray-500"
-                />
-              </div>
-            </div>
-          </div>
+          <Input
+            label="Price"
+            name="price"
+            type="number"
+            placeholder="in £"
+            defaultValue={car.price}
+          />
 
-          {/* reg year */}
-          <div>
-            <label htmlFor="regYear" className="mb-2 block text-sm font-medium">
-              Reg year
-            </label>
-            <div className="relative mt-2 rounded-md">
-              <div className="relative">
-                <input
-                  id="regYear"
-                  name="regYear"
-                  type="number"
-                  placeholder="eg. 73"
-                  defaultValue={car.regYear}
-                  className="peer block w-full rounded-md border border-gray-200 py-2 pl-10 text-sm text-black outline-2 placeholder:text-gray-500"
-                />
-              </div>
-            </div>
-          </div>
+          <Input
+            label="Colour"
+            name="color"
+            type="text"
+            placeholder="eg. red"
+            defaultValue={car.color}
+          />
+        </FormSection>
 
-          {/* price */}
-          <div>
-            <label htmlFor="price" className="mb-2 block text-sm font-medium">
-              Price
-            </label>
-            <div className="relative mt-2 rounded-md">
-              <div className="relative">
-                <input
-                  id="price"
-                  name="price"
-                  type="number"
-                  placeholder="in £"
-                  defaultValue={car.price}
-                  className="peer block w-full rounded-md border border-gray-200 py-2 pl-10 text-sm text-black outline-2 placeholder:text-gray-500"
-                />
-              </div>
-            </div>
-          </div>
+        <FormSection title='Age'>
+          <Input
+            label="Year"
+            name="year"
+            type="number"
+            placeholder="eg. 2023"
+            defaultValue={car.year}
+          />
 
-          {/* fuel type */}
-          <div>
-            <label htmlFor="fuelType" className="mb-2 block text-sm font-medium">
-              Fuel type
-            </label>
-            <div className="relative">
-              <select
-                id="fuelType"
-                name="fuelType"
-                className="peer block w-full rounded-md border border-gray-200 py-2 pl-10 text-sm text-black outline-2 placeholder:text-gray-500"
-                defaultValue={car.fuelType}
-                placeholder="Select a fuel type"
-              >
-                <option value="" disabled>
-                  Select a fuel type
-                </option>
-                <option value="petrol">Petrol</option>
-                <option value="diesel">Diesel</option>
-                <option value="hybrid">Hybrid</option>
-                <option value="electric">Electric</option>
-              </select>
-            </div>
-          </div>
+          <Input
+            label="Reg year"
+            name="regYear"
+            type="number"
+            placeholder="UK number plate, eg. 73"
+            defaultValue={car.regYear}
+          />
+        </FormSection>
 
-          {/* engine size */}
-          <div>
-            <label htmlFor="engineSize" className="mb-2 block text-sm font-medium">
-              Engine size
-            </label>
-            <div className="relative mt-2 rounded-md">
-              <div className="relative">
-                <input
-                  id="engineSize"
-                  name="engineSize"
-                  type="text"
-                  defaultValue={car.engineSize}
-                  className="peer block w-full rounded-md border border-gray-200 py-2 pl-10 text-sm text-black outline-2 placeholder:text-gray-500"
-                />
-              </div>
-            </div>
-          </div>
+        <FormSection title='Propulsion'>
+          <Select
+            label="Choose a fuel type"
+            name="fuelType"
+            options={[
+              { value: 'petrol', label: 'Petrol' },
+              { value: 'diesel', label: 'Diesel' },
+              { value: 'hybrid', label: 'Hybrid' },
+              { value: 'electric', label: 'Electric' },
+            ]}
+            defaultValue={car.fuelType}
+            placeholder="Select a fuel type"
+          />
 
-          {/* mileage */}
-          <div>
-            <label htmlFor="mileage" className="mb-2 block text-sm font-medium">
-              Mileage
-            </label>
-            <div className="relative mt-2 rounded-md">
-              <div className="relative">
-                <input
-                  id="mileage"
-                  name="mileage"
-                  type="number"
-                  defaultValue={car.mileage}
-                  className="peer block w-full rounded-md border border-gray-200 py-2 pl-10 text-sm text-black outline-2 placeholder:text-gray-500"
-                />
-              </div>
-            </div>
-          </div>
+          <Input
+            label="Engine size"
+            name="engineSize"
+            type="text"
+            placeholder="eg. 2.0"
+            defaultValue={car.engineSize}
+          />
+        </FormSection>
 
-          {/* image filename */}
-          <div>
-            <label htmlFor="image" className="mb-2 block text-sm font-medium">
-              Image filename
-            </label>
-            <div className="relative mt-2 rounded-md">
-              <div className="relative">
-                <input
-                  id="image"
-                  name="image"
-                  type="string"
-                  placeholder="eg. escort.jpg"
-                  defaultValue={car.image}
-                  className="peer block w-full rounded-md border border-gray-200 py-2 pl-10 text-sm text-black outline-2 placeholder:text-gray-500"
-                />
-              </div>
-            </div>
-          </div>
-
-          {/* colour */}
-          <div>
-            <label htmlFor="color" className="mb-2 block text-sm font-medium">
-              Colour
-            </label>
-            <div className="relative mt-2 rounded-md">
-              <div className="relative">
-                <input
-                  id="color"
-                  name="color"
-                  type="string"
-                  placeholder="eg. red"
-                  defaultValue={car.color}
-                  className="peer block w-full rounded-md border border-gray-200 py-2 pl-10 text-sm text-black outline-2 placeholder:text-gray-500"
-                />
-              </div>
-            </div>
-          </div>
-
-        </fieldset>
+        <FormSection title="Image">
+          <Select
+            label="Choose an image"
+            name="image"
+            options={imageFilenames.map(filename => ({
+              value: filename,
+              label: filename
+            }))}
+            defaultValue={car.image}
+            placeholder="Select an image"
+          />
+        </FormSection>
       </div>
 
       <div className="mt-6 flex justify-end gap-4">
