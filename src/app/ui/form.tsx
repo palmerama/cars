@@ -54,7 +54,7 @@ export const Select: React.FC<SelectProps> = ({ label, name, options, placeholde
             className="peer block w-full rounded-sm py-3 px-5 text-md text-black outline-2 placeholder:text-gray-400"
           >
             {
-              options.map(option => <option value={option.value}>{option.label}</option>)
+              options.map(option => <option key={option.value} value={option.value}>{option.label}</option>)
             }
           </select>
         </div>

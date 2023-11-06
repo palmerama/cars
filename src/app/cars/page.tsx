@@ -13,7 +13,7 @@ export default async function Page() {
       <PageTitle>Vehicle inventory</PageTitle>
       <ul className='grid sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-6'>
         {
-          cars.map((car: Car) => <Car car={car} />)
+          cars.map((car: Car) => <Car car={car} key={car.id} />)
         }
       </ul>
     </main>
