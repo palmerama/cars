@@ -70,3 +70,11 @@ export async function updateCar(id: string, formData: FormData) {
   revalidatePath('/cars')
   redirect('/cars')
 }
+
+export async function deleteCar(id: string) {
+  await sql`
+    DELETE FROM cars WHERE id = ${id}
+  `
+  revalidatePath('/cars')
+  redirect('/cars')
+}

@@ -6,10 +6,12 @@ import Link from "next/link"
 import { MdLocalGasStation } from 'react-icons/md'
 import { SlSpeedometer } from 'react-icons/sl'
 import { MdEdit, MdClose } from 'react-icons/md'
-import { LinkButton } from "@/app/ui/button"
+import { Button, LinkButton } from "@/app/ui/button"
+import { deleteCar } from "@/app/lib/actions"
 
 export default async function Page({ params }: { params: { id: string } }) {
   const car = await fetchCarById(params.id)
+  const deleteCarWithId = deleteCar.bind(null, params.id);
 
   return (
     <>
@@ -53,9 +55,11 @@ export default async function Page({ params }: { params: { id: string } }) {
                   </LinkButton>
                 </div>
                 <div>
-                  <LinkButton href={`/cars/${car.id}/edit`} warn>
-                    <MdClose className="inline-block text-lg align-text-bottom mr-1" /> Delete
-                  </LinkButton>
+                  <form action={deleteCarWithId}>
+                    <Button warn>
+                      <MdClose className="inline-block text-lg align-text-bottom mr-1" /> Delete
+                    </Button>
+                  </form>
                 </div>
               </div>
             </div>
