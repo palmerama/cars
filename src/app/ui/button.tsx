@@ -2,10 +2,11 @@ import clsx from 'clsx';
 import { MdEdit } from 'react-icons/md';
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  children: React.ReactNode;
+  children: React.ReactNode, 
+  warn?: boolean 
 }
 
-export const Button = ({ children, warn = false, ...rest }: { children: React.ReactNode, warn?: boolean }) => {
+export const Button = ({ children, warn = false, ...rest }: ButtonProps) => {
   return (
     <button
       {...rest}
